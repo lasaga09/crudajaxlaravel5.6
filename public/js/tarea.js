@@ -94,22 +94,21 @@ $(document).on("click","#btnUpdate",function(){
 
 $(document).on("click","#btnEliminar",function(){
 
-
+id = $(this).attr("idtareaup");
+			token = $(this).attr("token");
 alertify.confirm('Confirm Title', 'Confirm Message',
 
  function(){ 
-			id = $(this).attr("idtareaup");
-			token = $(this).attr("token");
+			
 					$.ajax({
 					headers: {
 					'x-csrf-token': token
 					},
-					url: 'tarea/'+id,
+					url: 'Tarea/'+id,
 					type: 'delete',
 					
 					data: {param1: 'value1'},
 					success:function(rs){
-					alertify.alert('alert title', 'alert message!', function(){ alertify.success('ok'); });
 					
 					
 					
@@ -119,7 +118,7 @@ alertify.confirm('Confirm Title', 'Confirm Message',
 			
 
  	alertify.success('Ok')
- 	setTimeout(cargarPagina,1000);
+ 	
 
  	 }
    , function(){ alertify.error('Cancel')});
